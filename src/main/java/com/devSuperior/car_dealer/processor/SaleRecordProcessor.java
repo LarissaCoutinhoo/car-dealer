@@ -1,0 +1,22 @@
+package com.devSuperior.car_dealer.processor;
+
+import com.devSuperior.car_dealer.domain.SaleRecord;
+import org.springframework.batch.infrastructure.item.ItemProcessor;
+import org.springframework.stereotype.Component;
+
+@Component
+public class SaleRecordProcessor implements ItemProcessor<SaleRecord, SaleRecord> {
+
+    @Override
+    public SaleRecord process(SaleRecord item) {
+        String model = item.model() == null ? null : item.model().trim(); // tirando espaços
+        String paymentType = item.paymentType() == null ? null : item.paymentType().trim();
+        return new SaleRecord(  //o processor está entre o reader e o writer
+                item.dealerId(),
+                item.saleDate(),
+                model,
+                paymentType,
+                item.salePriceBrl()
+        );
+    }
+}
