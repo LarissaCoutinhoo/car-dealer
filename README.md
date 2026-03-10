@@ -12,5 +12,3 @@ Automatizar a leitura e o processamento de múltiplos arquivos de vendas, reduzi
 ## Autora
 
 Larissa Coutinho Ferreira
-
-🚧 Projeto em desenvolvimento.
